@@ -42,3 +42,16 @@ app.get('/cadastrar/:usuario/:senha', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+app.get('/atualizarPontos/:usuario/:pontos', (req, res) => {
+  const { usuario, pontos } = req.params;
+  let logins = carregarLogins();
+
+  const userIndex = logins.findIndex(u => u.usuario === usuario);
+  if (userIndex === -1) {
+    return res.status(404).send('Usuário não encontrado');
+  }
+
+  logins[userIndex].pontos = Number(pontos);
+  fs.writeFileSync('logins.json', JSON.stringify(logins, null, 2));
+  res.send('Pontuação atualizada');
+});
