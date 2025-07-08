@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const serviceAccount = JSON.parse(process.env.FIREBASE_KEY); // chave como variável
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://SEU-PROJETO.firebaseio.com' // ← Altere isso com seu link do Firebase!
+  databaseURL: 'https://loginappbrsos-default-rtdb.firebaseio.com/' // ← Altere isso com seu link do Firebase!
 });
 
 const db = admin.database();
@@ -80,7 +80,7 @@ app.get('/', (req, res) => {
 
 // Função para salvar dados no GitHub
 async function salvarNoGitHub(nomeArquivo, conteudoJson) {
-  const repo = 'SEU-USUARIO/SEU-REPOSITORIO'; // Altere isso
+  const repo = 'DiegoGitHuub/login-server'; // Altere isso
   const path = nomeArquivo;
   const token = process.env.GH_TOKEN;
 
