@@ -120,7 +120,7 @@ setInterval(async () => {
   } catch (err) {
     console.error('[✖] Erro ao gerar logins.json automático:', err.message);
   }
-}, 30 * 1000); // 5 minutos
+}, 10 * 60 * 1000); // 5 minutos
 
 // Iniciar servidor
 app.listen(PORT, () => {
