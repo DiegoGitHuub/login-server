@@ -12,7 +12,7 @@ app.use(express.json());
 const serviceAccount = JSON.parse(process.env.FIREBASE_KEY);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://SEU-PROJETO.firebaseio.com" // substitua aqui
+  databaseURL: "https://loginappbrsos-default-rtdb.firebaseio.com/" // substitua aqui
 });
 const db = admin.database();
 
